@@ -1,0 +1,26 @@
+version: "3.3"
+
+services:
+  webapp:
+    image: ${DTR_URL}/demo/dotnetdemo:${TAG}
+    deploy:
+      mode: replicated
+      replicas: 2
+      update_config:
+        parallelism: 1
+        delay: 15s
+        failure_action: continue
+      labels:
+        - "com.docker.ucp.mesh.http.80=internal_port=80,external_route=http://dotnetdemo-${ENVIRONMENT}.${DOMAIN_NAME}"
+        - "com.docker.ucp.access.label=/demo-collection/${ENVIRONMENT}"
+    networks:
+      - dotnetdemo
+      - ucp-hrm
+
+networks:
+  dotnetdemo:
+    driver: overlay
+    labels:
+      - "com.docker.ucp.access.label=/demo-collection/${ENVIRONMENT}"
+  ucp-hrm:
+    external: true
