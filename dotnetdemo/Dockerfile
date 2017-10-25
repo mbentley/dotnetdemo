@@ -15,4 +15,4 @@
  FROM microsoft/aspnetcore:2.0
  WORKDIR /app
  COPY --from=builder /app .
- ENTRYPOINT ["dotnet", "myapp.dll"]
+ ENTRYPOINT ["dotnet", "dotnetdemo.dll"]
