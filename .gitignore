@@ -12,3 +12,12 @@ bld/
 msbuild.log
 msbuild.err
 msbuild.wrn
+
+# Visual Studio
+.vs/
+
+# User-specific files
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
