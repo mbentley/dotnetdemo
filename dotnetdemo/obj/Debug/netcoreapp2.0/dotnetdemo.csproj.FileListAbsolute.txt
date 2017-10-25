@@ -1,0 +1,11 @@
+C:\Users\mbentley\source\repos\dotnetdemo\dotnetdemo\bin\Debug\netcoreapp2.0\dotnetdemo.deps.json
+C:\Users\mbentley\source\repos\dotnetdemo\dotnetdemo\bin\Debug\netcoreapp2.0\dotnetdemo.runtimeconfig.json
+C:\Users\mbentley\source\repos\dotnetdemo\dotnetdemo\bin\Debug\netcoreapp2.0\dotnetdemo.runtimeconfig.dev.json
+C:\Users\mbentley\source\repos\dotnetdemo\dotnetdemo\bin\Debug\netcoreapp2.0\dotnetdemo.dll
+C:\Users\mbentley\source\repos\dotnetdemo\dotnetdemo\bin\Debug\netcoreapp2.0\dotnetdemo.pdb
+C:\Users\mbentley\source\repos\dotnetdemo\dotnetdemo\obj\Debug\netcoreapp2.0\dotnetdemo.csprojResolveAssemblyReference.cache
+C:\Users\mbentley\source\repos\dotnetdemo\dotnetdemo\obj\Debug\netcoreapp2.0\dotnetdemo.csproj.CoreCompileInputs.cache
+C:\Users\mbentley\source\repos\dotnetdemo\dotnetdemo\obj\Debug\netcoreapp2.0\dotnetdemo.AssemblyInfoInputs.cache
+C:\Users\mbentley\source\repos\dotnetdemo\dotnetdemo\obj\Debug\netcoreapp2.0\dotnetdemo.AssemblyInfo.cs
+C:\Users\mbentley\source\repos\dotnetdemo\dotnetdemo\obj\Debug\netcoreapp2.0\dotnetdemo.dll
+C:\Users\mbentley\source\repos\dotnetdemo\dotnetdemo\obj\Debug\netcoreapp2.0\dotnetdemo.pdb
