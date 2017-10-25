@@ -13,6 +13,8 @@ services:
       labels:
         - "com.docker.ucp.mesh.http.80=internal_port=80,external_route=http://dotnetdemo-${ENVIRONMENT}.${DOMAIN_NAME}"
         - "com.docker.ucp.access.label=/demo-collection/${ENVIRONMENT}"
+    environment:
+      - "ENVIRONMENT=${ENVIRONMENT}"
     networks:
       - dotnetdemo
       - ucp-hrm
