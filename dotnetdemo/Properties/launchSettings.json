@@ -16,7 +16,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "WebApplication2": {
+    "dotnetdemo": {
       "commandName": "Project",
       "launchBrowser": true,
       "environmentVariables": {
