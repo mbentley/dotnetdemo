@@ -15,7 +15,7 @@ services:
         - "com.docker.ucp.access.label=/demo-collection/${ENVIRONMENT}"
         - "com.docker.lb.hosts=dotnetdemo-${ENVIRONMENT:-dev}.${DOMAIN_NAME:-demo.dckr.org}"
         - "com.docker.lb.port=80"
-        - "com.docker.lb.network=${COMPOSE_PROJECT_NAME}_dotnetdemo"
+        - "com.docker.lb.network=dotnetdemo-${ENVIRONMENT:-dev}_dotnetdemo"
 
     environment:
       - "ENVIRONMENT=${ENVIRONMENT}"
