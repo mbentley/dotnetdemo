@@ -11,22 +11,22 @@ services:
         delay: 15s
         failure_action: continue
       labels:
-        #- "com.docker.ucp.mesh.http.80=internal_port=80,external_route=http://dotnetdemo-${ENVIRONMENT:-dev}.${DOMAIN_NAME:-demo.dckr.org}"
+        - "com.docker.ucp.mesh.http.80=internal_port=80,external_route=http://dotnetdemo-${ENVIRONMENT:-dev}.${DOMAIN_NAME:-demo.dckr.org}"
         - "com.docker.ucp.access.label=/demo-collection/${ENVIRONMENT}"
-        - "com.docker.lb.hosts=dotnetdemo-${ENVIRONMENT:-dev}.${DOMAIN_NAME:-demo.dckr.org}"
-        - "com.docker.lb.port=80"
-        - "com.docker.lb.network=dotnetdemo-${ENVIRONMENT:-dev}_dotnetdemo"
+        #- "com.docker.lb.hosts=dotnetdemo-${ENVIRONMENT:-dev}.${DOMAIN_NAME:-demo.dckr.org}"
+        #- "com.docker.lb.port=80"
+        #- "com.docker.lb.network=dotnetdemo-${ENVIRONMENT:-dev}_dotnetdemo"
 
     environment:
       - "ENVIRONMENT=${ENVIRONMENT}"
     networks:
       - dotnetdemo
-      #- ucp-hrm
+      - ucp-hrm
 
 networks:
   dotnetdemo:
     driver: overlay
     labels:
       - "com.docker.ucp.access.label=/demo-collection/${ENVIRONMENT}"
-  #ucp-hrm:
-  #  external: true
+  ucp-hrm:
+    external: true
