@@ -5,6 +5,7 @@ services:
     image: ${DTR_URL:-dtr.demo.dckr.org}/demo/dotnetdemo:${TAG:-latest}
     deploy:
       mode: replicated
+      endpoint_mode: dnsrr
       replicas: 2
       update_config:
         parallelism: 1
