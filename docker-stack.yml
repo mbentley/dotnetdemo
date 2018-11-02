@@ -2,31 +2,28 @@ version: "3.3"
 
 services:
   webapp:
-    image: ${DTR_URL}/demo/dotnetdemo:${TAG}
+    image: ${DTR_URL:-dtr.demo.dckr.org}/demo/dotnetdemo:${TAG:-latest}
     deploy:
       mode: replicated
+      endpoint_mode: dnsrr
       replicas: 2
       update_config:
         parallelism: 1
         delay: 15s
         failure_action: continue
       labels:
-        - "com.docker.ucp.mesh.http.80=internal_port=80,external_route=http://dotnetdemo-${ENVIRONMENT:-dev}.${DOMAIN_NAME:-demo.dckr.org}"
-        - "com.docker.ucp.access.label=/demo-collection/${ENVIRONMENT}"
-        #- "com.docker.lb.hosts=dotnetdemo-${ENVIRONMENT:-dev}.${DOMAIN_NAME:-demo.dckr.org}"
-        #- "com.docker.lb.port=80"
-        #- "com.docker.lb.network=dotnetdemo-${ENVIRONMENT:-dev}_dotnetdemo"
-
+        - "com.docker.ucp.access.label=/demo-collection/${ENVIRONMENT:-dev}"
+        #- "com.docker.ucp.mesh.http.80=internal_port=80,external_route=http://dotnetdemo-${ENVIRONMENT}.${DOMAIN_NAME}"
+        - "com.docker.lb.hosts=dotnetdemo-${ENVIRONMENT:-dev}.${DOMAIN_NAME:-demo.dckr.org}"
+        - "com.docker.lb.port=80"
+        - "com.docker.lb.network=dotnetdemo-${ENVIRONMENT:-dev}_dotnetdemo"
     environment:
       - "ENVIRONMENT=${ENVIRONMENT}"
     networks:
       - dotnetdemo
-      - ucp-hrm
 
 networks:
   dotnetdemo:
     driver: overlay
     labels:
-      - "com.docker.ucp.access.label=/demo-collection/${ENVIRONMENT}"
-  ucp-hrm:
-    external: true
+      - "com.docker.ucp.access.label=/demo-collection/${ENVIRONMENT:-dev}"
