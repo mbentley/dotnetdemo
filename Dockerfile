@@ -1,5 +1,6 @@
  # Stage 1
- FROM microsoft/dotnet:2.1-sdk AS builder
+ #FROM microsoft/dotnet:2.1-sdk AS builder
+ FROM mcr.microsoft.com/dotnet/core/sdk:2.1 AS builder
  WORKDIR /source
 
  # caches restore result by copying csproj file separately
@@ -11,7 +12,8 @@
  RUN dotnet publish --output /app/ --configuration Release
 
  # Stage 2
- FROM microsoft/dotnet:2.1-aspnetcore-runtime
+ #FROM microsoft/dotnet:2.1-aspnetcore-runtime
+ FROM mcr.microsoft.com/dotnet/core/aspnet:2.1
  WORKDIR /app
  COPY --from=builder /app .
  ENTRYPOINT ["dotnet", "dotnetdemo.dll"]
